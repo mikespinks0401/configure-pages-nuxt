@@ -25,15 +25,15 @@ function getConfigParserSettings({ staticSiteGenerator, generatorConfigFile, sit
       }
     case 'nuxt3':
       return {
-        configurationFile: generatorConfigFile || './nuxt.config.js',
+        configurationFile: generatorConfigFile || './nuxt.config.ts',
         blankConfigurationFile: `${__dirname}/blank-configurations/nuxt.js`,
         properties: {
+          ssr: false,
           // Configure a base && cdn path for the router
           app: {
-            cdnURL: origin,
-            baseURL: path
-          },
-          ssr: false
+            baseURL: path,
+            cdnURL: origin
+          }
         }
       }
     // case 'nuxt3':
