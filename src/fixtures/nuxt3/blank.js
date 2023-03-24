@@ -1,1 +1,1 @@
-//This file is not ready by the test suites
+// This file is not read by the test suite

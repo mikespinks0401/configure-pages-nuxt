@@ -23,6 +23,32 @@ function getConfigParserSettings({ staticSiteGenerator, generatorConfigFile, sit
           target: 'static'
         }
       }
+    case 'nuxt3':
+      return {
+        configurationFile: generatorConfigFile || './nuxt.config.js',
+        blankConfigurationFile: `${__dirname}/blank-configurations/nuxt.js`,
+        properties: {
+          // Configure a base && cdn path for the router
+          'app.cdnURL': origin,
+          'app.baseURL': path,
+          ssr: false,
+
+        }
+      }
+    // case 'nuxt3':
+    //   return {
+    //     configurationFile: generatorConfigFile || './nuxt.config.js',
+    //     blankConfigurationFile: `${__dirname}/blank-configurations/nuxt.js`,
+    //     properties: {
+    //       //set the base and cdn url
+    //       app: {
+    //         cdnURL: origin,
+    //         baseURL: path
+    //       },
+    //       //set ssr to false
+    //       ssr: false
+    //     }
+    //   }
     case 'next':
       // Next does not want a trailing slash
       path = removeTrailingSlash(path)
